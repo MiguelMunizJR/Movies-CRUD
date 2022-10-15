@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 //? Este es el prefijo: /api/v1/movies
 
 router.get("/");

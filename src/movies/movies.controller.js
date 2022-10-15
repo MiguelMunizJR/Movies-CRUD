@@ -21,11 +21,19 @@ const createMovie = async (data) => {
   return newMovie;
 };
 
-createMovie({
-  name: "Interestellar",
-  genre: "Science Fiction/Adventure",
-  duration: 160,
-  releaseDate: "2014-01-10",
-})
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
+const getMovieById = async (id) => {
+  //* Con 'Movies.findOne()' nos retorna el valor filtrado.
+  //! En SQL es equivalente a: SELECT * FROM MOVIES WHERE ID = ID;
+  const data = await Movies.findOne({
+    where: {
+      id: id,
+    },
+  });
+  return data;
+};
+
+module.exports = {
+  getAllMovies,
+  getMovieById,
+  createMovie,
+};
