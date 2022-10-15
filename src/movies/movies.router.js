@@ -1,12 +1,9 @@
 const router = require("express").Router();
+const moviesServices = require('./movies.services');
 //? Este es el prefijo: /api/v1/movies
 
-router.get("/");
-router.post("/");
-
-router.get("/:id");
-router.delete("/:id");
-router.patch("/:id");
-router.put("/:id");
+router.get("/", moviesServices.getAllMovies);
+router.get("/:id", moviesServices.getMovieById);
+router.post("/", moviesServices.postMovie);
 
 module.exports = router;
