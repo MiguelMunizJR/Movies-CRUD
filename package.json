@@ -1,0 +1,30 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "Este proyecto es para repasar lo aprendido durante el modulo de nodejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "back-end",
+    "sequelize"
+  ],
+  "author": "Miguel Muñiz",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.23.2",
+    "uuid": "^9.0.0"
+  }
+}
