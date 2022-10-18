@@ -73,6 +73,51 @@ const patchMovie = (req, res) => {
     });
 };
 
+//? Modificacion completa:
+const putMovie = (req, res) => {
+  const id = req.params.id;
+  const { name, genre, duration, releaseDate } = req.body;
+
+  //* Este if es para validar los datos
+  //* y generar error en caso de datos faltantes.
+  if (name && genre && duration && releaseDate) {
+    moviesControllers
+      .editMovies(id, {
+        name,
+        genre,
+        duration,
+        releaseDate,
+      })
+      .then((response) => {
+        //* Este if valida si una pelicula existe o no por ID.
+        if (response[0]) {
+          res.status(200).json({
+            messagee: `Movie with ID: ${id}, edited succesfully!`,
+          });
+        } else {
+          res.status(404).json({
+            message: "Invalid ID",
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(400).json({
+          message: err.message,
+        });
+      });
+  } else {
+    res.status(400).json({
+      message: "Missing Data",
+      field: {
+        name: "string",
+        genre: "string",
+        duration: "integer",
+        releaseDate: "YYYY/MM/DD",
+      },
+    });
+  }
+};
+
 const deleteMovie = (req, res) => {
   const id = req.params.id;
 
@@ -101,5 +146,6 @@ module.exports = {
   getMovieById,
   postMovie,
   patchMovie,
+  putMovie,
   deleteMovie,
 };

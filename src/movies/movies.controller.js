@@ -55,6 +55,8 @@ const editMovies = async (id, data) => {
 //?  duration: 140
 //? });
 
+
+
 const deleteMovie = async (id) => {
   const data = await Movies.destroy({
     where: {

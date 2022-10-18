@@ -1,13 +1,13 @@
 const express = require("express");
 const DB = require("./utils/database");
 const initModels = require("./models/initModels");
-const config = require('./config');
-const moviesRouter = require('./movies/movies.router');
+const config = require("./config");
+const moviesRouter = require("./movies/movies.router");
 
 const app = express();
 
 app.use(express.json());
-app.use('/movies', moviesRouter);
+app.use("/movies", moviesRouter);
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "All done loco!" });
